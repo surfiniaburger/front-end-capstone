@@ -78,45 +78,68 @@ function Main() {
         </article>
       </section>
 
-      <section>
-        <div className="card">
-          <div className="rating">
-            <img src="icons_assets/stars.png" alt="Rating" />
-          </div>
-          <div className="name">Jim Yu</div>
-          <div className="review">Excellent product. I'm very satisfied with my purchase.</div>
-          <img src="icons_assets/baby.jpg" alt="Jim Yu" className="reviewer-image" />
-        </div>
+      
 
-        {/* Repeat similar structure for other testimonials */}
+        
+         
+        <section className="section-reviews">
+           <div className="card">
+             <div className="rating">
+               <img src="icons_assets/stars.png" alt="Rating" className="rating" />
+             </div>
+             <div className="reviewer-content">
+               <div className="reviewer-info">
+                 <img src="icons_assets/baby.jpg" alt="Jim Yu" className="reviewer-image" />
+                 <div className="name">Jim Yu</div>
+                </div>
+               <div className="review">Excellent product. I'm very satisfied with my purchase.</div>
+              </div>
+            </div>
+            
+            
+           <div className="card">
+             <div className="rating">
+               <img src="icons_assets/stars.png" alt="Rating" className="rating" />
+             </div>
+             <div className="reviewer-content">
+               <div className="reviewer-info">
+                 <img src="icons_assets/guy.jpg" alt="Jim Yu" className="reviewer-image" />
+                 <div className="name">John B</div>
+                </div>
+               <div className="review">Excellent product. I'm very satisfied with my purchase.</div>
+              </div>
+            </div>
 
-        <div className="card">
-          <div className="rating">
-            <img src="icons_assets/stars.png" alt="Rating" />
-          </div>
-          <div className="name">John B</div>
-          <div className="review">Excellent product. I'm very satisfied with my purchase.</div>
-          <img src="icons_assets/guy.jpg" alt="John B" className="reviewer-image" />
-        </div>
+            <div className="card">
+             <div className="rating">
+               <img src="icons_assets/stars.png" alt="Rating" className="rating" />
+             </div>
+             <div className="reviewer-content">
+               <div className="reviewer-info">
+                 <img src="icons_assets/she.jpg" alt="Jim Yu" className="reviewer-image" />
+                 <div className="name">Sarah</div>
+                </div>
+               <div className="review">Excellent product. I'm very satisfied with my purchase.</div>
+              </div>
+            </div>
 
-        <div className="card">
-          <div className="rating">
-            <img src="icons_assets/stars.png" alt="Rating" />
-          </div>
-          <div className="name">Papa</div>
-          <div className="review">Excellent product. I'm very satisfied with my purchase.</div>
-          <img src="icons_assets/they.jpg" alt="Papa" className="reviewer-image" />
-        </div>
+            <div className="card">
+             <div className="rating">
+               <img src="icons_assets/stars.png" alt="Rating" className="rating" />
+             </div>
+             <div className="reviewer-content">
+               <div className="reviewer-info">
+                 <img src="icons_assets/they.jpg" alt="Jim Yu" className="reviewer-image" />
+                 <div className="name">Papa</div>
+                </div>
+               <div className="review">Excellent product. I'm very satisfied with my purchase.</div>
+              </div>
+            </div>
 
-        <div className="card">
-          <div className="rating">
-            <img src="icons_assets/stars.png" alt="Rating" />
-          </div>
-          <div className="name">Sarah</div>
-          <div className="review">Excellent product. I'm very satisfied with my purchase.</div>
-          <img src="icons_assets/she.jpg" alt="" className="reviewer-image" />
-        </div>
-      </section>
+        </section>
+
+
+        
 
       <section className="bottom">
         <div className="text-container">
