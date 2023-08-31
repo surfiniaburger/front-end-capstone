@@ -1,6 +1,7 @@
 import React from 'react';
 import Chicago from './Chicago';
-function Nav() {
+
+function Bottom() {
   return (
     <section className="bottom">
         <div className="text-container">
@@ -20,7 +21,7 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default Bottom;
 
 
 
