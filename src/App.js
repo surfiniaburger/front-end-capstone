@@ -19,21 +19,34 @@ function availableTimesReducer(state, action) {
   }
 }
 
+// ...
+
+export function updateTimes(currentState, newTimes) {
+  return newTimes; // For now, it simply returns the new times
+}
+
+// ...
+
+
+// ...
+
+export function initializeTimes() {
+  return [
+    '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
+  ];
+}
+
+// ...
+
+
 function App() {
   const [initialTimes] = useState([
     '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
   ]);
 
-  // Create a function to initialize times
-  const initializeTimes = () => initialTimes;
-
   // Initialize availableTimes using useReducer
   const [availableTimes, dispatch] = useReducer(availableTimesReducer, [], initializeTimes);
 
-  // Function to update times (currently using the same initial times)
-  const updateTimes = (newTimes) => {
-    dispatch({ type: 'UPDATE_TIMES', payload: newTimes });
-  };
 
   return (
     <BrowserRouter>

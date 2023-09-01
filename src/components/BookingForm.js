@@ -3,15 +3,17 @@ import React, { useState, useEffect } from 'react';
 function BookingForm({ availableTimes, updateTimes }) {
   // Stateful form fields
   const [date, setDate] = useState('');
-  const [time, setTime] = useState(availableTimes[0]);
+  const [time, setTime] = useState('17.00');
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('Birthday');
 
   // Effect to update available times based on selected date
   useEffect(() => {
-    // Update times based on the selected date (for now, using the same initial times)
-    const newTimes = [...availableTimes]; // Clone the array
-    updateTimes(newTimes);
+    if (Array.isArray(availableTimes)) {
+      // Update times based on the selected date (for now, using the same initial times)
+      const newTimes = [...availableTimes]; // Clone the array
+      updateTimes(newTimes);
+    }
   }, [date, updateTimes, availableTimes]);
 
   const handleSubmit = (e) => {
@@ -27,11 +29,15 @@ function BookingForm({ availableTimes, updateTimes }) {
       <input type="date" id="res-date" value={date} onChange={(e) => setDate(e.target.value)} />
 
       <label htmlFor="res-time">Choose time</label>
-      <select id="res-time" value={time} onChange={(e) => setTime(e.target.value)}>
-        {availableTimes.map((availableTime, index) => (
-          <option key={index} value={availableTime}>{availableTime}</option>
-        ))}
-      </select>
+      {Array.isArray(availableTimes) && availableTimes.length > 0 ? (
+        <select id="res-time" value={time} onChange={(e) => setTime(e.target.value)}>
+          {availableTimes.map((availableTime, index) => (
+            <option key={index} value={availableTime}>{availableTime}</option>
+          ))}
+        </select>
+      ) : (
+        <p>No available times found.</p>
+      )}
 
       <label htmlFor="guests">Number of guests</label>
       <input type="number" placeholder="1" min="1" max="10" id="guests" value={guests} onChange={(e) => setGuests(e.target.value)} />
@@ -48,6 +54,7 @@ function BookingForm({ availableTimes, updateTimes }) {
 }
 
 export default BookingForm;
+
 
 
 
