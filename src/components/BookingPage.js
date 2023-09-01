@@ -1,12 +1,13 @@
 import React from 'react';
+import BookingForm from './BookingForm';
 
-function BookingPage() {
+function BookingPage({ availableTimes, updateTimes }) {
   return (
-    <section className="booking-page">
-      <h2>Reserve a Table</h2>
-      <p>Book your table now and enjoy an unforgettable dining experience.</p>
-      <a href="#reservation-form" className="btn">Book Now</a>
-    </section>
+    <div>
+      <h2>Make a Reservation</h2>
+      {/* Pass availableTimes and updateTimes as props to BookingForm */}
+      <BookingForm availableTimes={availableTimes} updateTimes={updateTimes} />
+    </div>
   );
 }
 
