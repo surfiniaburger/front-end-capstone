@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import BookingPage from './components/BookingPage';
@@ -7,6 +7,7 @@ import HomePage from './components/HomePage';
 import About from './components/About';
 import OrderOnline from './components/OrderOnline';
 import Login from './components/Login';
+import ConfirmedBooking from './components/ConfirmedBooking';
 
 // Define the reducer function
 function availableTimesReducer(state, action) {
@@ -40,12 +41,25 @@ export function initializeTimes() {
 
 
 function App() {
-  const [initialTimes] = useState([
-    '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
-  ]);
+  // const [initialTimes, setInitialTimes] = useState([
+  //   '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
+  // ]);
+  const fetchData = () => {
+    fetch("https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js")
+      .then((response) => response.json())
+      .then((data) =>  {
+        // Assuming the API returns an array of available times, update initialTimes here
+        //setInitialTimes(data.availableTimes);
+      });
+  };
+
+  React.useEffect(() => {
+    fetchData();
+  }, []);
+
 
   // Initialize availableTimes using useReducer
-  const [availableTimes, dispatch] = useReducer(availableTimesReducer, [], initializeTimes);
+  const [availableTimes] = useReducer(availableTimesReducer, [], initializeTimes);
 
 
   return (
@@ -59,6 +73,8 @@ function App() {
           <Route path="/reservations" element={<BookingPage availableTimes={availableTimes} updateTimes={updateTimes} />} />
           <Route path="/order-online" element={<OrderOnline />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/confirmed" element={<ConfirmedBooking />} /> {/* Add the confirmation route */}
+
         </Routes>
       </div>
     </BrowserRouter>
@@ -66,4 +82,3 @@ function App() {
 }
 
 export default App;
-

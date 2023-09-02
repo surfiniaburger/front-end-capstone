@@ -1,27 +1,33 @@
 import React, { useState, useEffect } from 'react';
 
-function BookingForm({ availableTimes, updateTimes }) {
+function BookingForm({ availableTimes, updateTimes, submitForm }) {
   // Stateful form fields
   const [date, setDate] = useState('');
   const [time, setTime] = useState('17.00');
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('Birthday');
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = { date, time, guests, occasion };
+
+    // Call the submitForm function passed via props
+    submitForm(formData);
+  };
+
   // Effect to update available times based on selected date
   useEffect(() => {
     if (Array.isArray(availableTimes)) {
       // Update times based on the selected date (for now, using the same initial times)
       const newTimes = [...availableTimes]; // Clone the array
+      console.log("New Times:", newTimes); // Log the new times to check
+
       updateTimes(newTimes);
     }
   }, [date, updateTimes, availableTimes]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = { date, time, guests, occasion };
-    // Handle form submission, possibly making a reservation
-    console.log(formData);
-  };
+  
+  
 
   return (
     <form onSubmit={handleSubmit} style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}>
